@@ -1,14 +1,14 @@
-%define		snapshot	2004.03.26
+%define		snapshot	2004.08.04
 
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	0.5.0
+Version:	0.5.3
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.namesys.com/snapshots/%{snapshot}/%{name}-%{version}.tar.gz
-# Source0-md5:	490a58a387557c55fc2ab30970793e1b
+# Source0-md5:	1805803b582a8799871bf11f2bc2ef77
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-am18.patch
 URL:		http://www.namesys.com/
