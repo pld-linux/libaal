@@ -1,20 +1,21 @@
-%define		snapshot	2003.08.26
+%define		snapshot	2003.12.23
 %define		_snap	%(echo %{snapshot} | tr -d .)
 
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	0.4.9
-Release:	0.%{_snap}
+Version:	0.4.15
+Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://www.namesys.com/snapshots/%{snapshot}/%{name}-%{_snap}.tar.gz
-# Source0-md5:	7abde90b8b0a1130eee5b9f71130cb1b
+Source0:	http://www.namesys.com/snapshots/%{snapshot}/%{name}-%{version}.tar.gz
+# Source0-md5:	bff755d94bf590c6c2cf8ae46e496b73
 Patch0:		%{name}-opt.patch
-BuildRequires:	autoconf
+Patch1:		%{name}-am18.patch
+URL:		http://www.namesys.com/
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
-URL:		http://www.namesys.com/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,10 +50,10 @@ Statyczna wersja biblioteki libaal.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoheader}
@@ -77,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 # COPYING contains information other than GPL text
-%doc AUTHORS BUGS COPYING CREDITS ChangeLog NEWS README THANKS TODO
+%doc AUTHORS BUGS COPYING CREDITS ChangeLog README THANKS TODO
 %attr(755,root,root) %{_libdir}/lib*-*.so.*.*.*
 
 %files devel
