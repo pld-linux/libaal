@@ -19,13 +19,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 
 %description -l pl
-Ta bibiloteka jest potrzebna je¿eli chcesz u¿ywaæ nowego systemu plików Resier4
+Ta bibiloteka jest potrzebna je¿eli chcesz u¿ywaæ nowego systemu
+plików Resier4
 
 %package static
-Summary:        Static versionf of libaal
-Summary(pl):    Wersja statyczna libaal
-Group:          Development/Libraries
-Requires:       %{name} = %{version}
+Summary:	Static versionf of libaal
+Summary(pl):	Wersja statyczna libaal
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
 
 %description static
 Static version of libaal.
@@ -67,7 +68,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.*a
-
-%changelog
-* %{date} PLD Team <feedback@pld-linux.org>
-All persons listed below can be reached at <cvs_login>@pld-linux.org
