@@ -1,14 +1,13 @@
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	1.0.3
+Version:	1.0.4
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.namesys.com/pub/reiser4progs/%{name}-%{version}.tar.gz
-# Source0-md5:	78b06fcea858031c776f99628c4f7376
-Patch0:		%{name}-am18.patch
-Patch1:		%{name}-opt.patch
+# Source0-md5:	bdcdb1b8ca13dba897c0a2138d1643f5
+Patch0:		%{name}-opt.patch
 URL:		http://www.namesys.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -48,7 +47,6 @@ Statyczna wersja biblioteki libaal.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
