@@ -1,15 +1,15 @@
-%define		snapshot	2003.06.14
+%define		snapshot	2003.08.11
 %define		_snap	%(echo %{snapshot} | tr -d .)
 
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	0.4.7
-Release:	1.%{_snap}.1
+Version:	0.4.9
+Release:	0.%{_snap}
 License:	GPL v2
 Group:		Libraries
-Source0:	http://thebsh.namesys.com/snapshots/%{snapshot}/%{name}-%{_snap}.tar.gz
-# Source0-md5:	6fd165e7491104dec9396b3f687efb37
+Source0:	http://thebsh.namesys.com/snapshots/%{snapshot}/%{name}-%{version}.tar.gz
+# Source0-md5:	4a429d78c0c369f4b259adcdec63836d
 Patch0:		%{name}-opt.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
