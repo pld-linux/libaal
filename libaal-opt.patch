@@ -1,6 +1,6 @@
---- libaal-0.4.5/configure.in.orig	2003-05-26 19:53:41.000000000 +0200
-+++ libaal-0.4.5/configure.in	2003-06-05 22:24:18.000000000 +0200
-@@ -118,7 +118,6 @@
+--- libaal-0.4.15/configure.in.orig	2003-12-23 10:01:36.000000000 +0100
++++ libaal-0.4.15/configure.in	2003-12-28 13:41:29.795179312 +0100
+@@ -125,7 +125,6 @@
    ALIGN_FLAGS="-malign-jumps=1 -malign-loops=1 -malign-functions=1 -malign-labels=1 -momit-frame-pointer -mno-inline -mstrength-reduce"
  fi
  
@@ -8,9 +8,9 @@
  ALONE_CFLAGS=""
  GENERIC_CFLAGS=""
  
-@@ -165,14 +164,6 @@
- $EXCEPTIONS_CFLAGS $STRING_FUNCTIONS_CFLAGS $LRU_FUNCTIONS_CFLAGS $ALIGN_FLAGS"
- fi
+@@ -161,13 +160,7 @@
+ 
+ CFLAGS="$CFLAGS -W -Wall"
  
 -if test x$enable_debug = xyes; then
 -    GENERIC_CFLAGS="$GENERIC_CFLAGS -O0 -g"
@@ -18,8 +18,8 @@
 -else
 -    GENERIC_CFLAGS="$GENERIC_CFLAGS -O2"
 -    ALONE_CFLAGS="$ALONE_CFLAGS -Os"
--fi
 -
- CFLAGS="$CFLAGS -W -Wall -Wno-unused"
- if test x$enable_Werror = xyes; then
-     CFLAGS="$CFLAGS -Werror"
++if test x$enable_debug != xyes; then
+     if test "x$uninitialized" = xyes; then
+        CFLAGS="$CFLAGS -Wuninitialized"
+     fi
