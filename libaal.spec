@@ -32,7 +32,7 @@ Requires:	%{name} = %{version}-%{release}
 Header files for libaal library.
 
 %description devel -l pl
-Pliki nag³owkowe biblioteki libaal.
+Pliki nag³ówkowe biblioteki libaal.
 
 %package static
 Summary:	Static version of libaal
