@@ -1,15 +1,14 @@
-%define		snapshot	2003.12.23
-%define		_snap	%(echo %{snapshot} | tr -d .)
+%define		snapshot	2004.03.26
 
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	0.4.15
+Version:	0.5.0
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.namesys.com/snapshots/%{snapshot}/%{name}-%{version}.tar.gz
-# Source0-md5:	bff755d94bf590c6c2cf8ae46e496b73
+# Source0-md5:	490a58a387557c55fc2ab30970793e1b
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-am18.patch
 URL:		http://www.namesys.com/
@@ -28,7 +27,7 @@ Biblioteka libaal - potrzebna do narzêdzi dla systemu plików Reiser4.
 Summary:	Header files for libaal library
 Summary(pl):	Pliki nag³owkowe biblioteki libaal
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for libaal library.
@@ -40,7 +39,7 @@ Pliki nag³owkowe biblioteki libaal.
 Summary:	Static version of libaal
 Summary(pl):	Wersja statyczna libaal
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libaal library.
