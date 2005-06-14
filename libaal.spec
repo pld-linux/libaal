@@ -1,4 +1,4 @@
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static	# don't build static library
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
@@ -57,7 +57,7 @@ Statyczna wersja biblioteki libaal.
 %{__automake}
 %configure \
 	%{!?debug:--disable-debug} \
-	%{!?with_static_libs:--disable-static}
+	%{!?with_static:--disable-static}
 %{__make}
 
 %install
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %{_aclocaldir}/*.m4
 
-%if %{with static_libs}
+%if %{with static}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
