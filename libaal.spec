@@ -1,15 +1,16 @@
+#
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
-Version:	1.0.4
+Version:	1.0.5
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.namesys.com/pub/reiser4progs/%{name}-%{version}.tar.gz
-# Source0-md5:	bdcdb1b8ca13dba897c0a2138d1643f5
+# Source0-md5:	6c55201acd2a2c0a1f46addf248da6a2
 Patch0:		%{name}-opt.patch
 URL:		http://www.namesys.com/
 BuildRequires:	autoconf >= 2.50
