@@ -59,8 +59,10 @@ Statyczna wersja biblioteki libaal.
 %{__autoconf}
 %{__automake}
 %configure \
+	--libdir=/%{_lib}\
+	--libexecdir=/%{_lib}\
 	%{!?debug:--disable-debug} \
-	%{!?with_static_libs:--disable-static}
+	%{!?with_static_libs:--disable-static}i
 %{__make}
 
 %install
@@ -79,17 +81,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 # COPYING contains information other than GPL text
 %doc AUTHORS BUGS COPYING CREDITS ChangeLog README THANKS TODO
-%attr(755,root,root) %{_libdir}/lib*-*.so.*.*.*
+%attr(755,root,root) /%{_lib}/lib*-*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) /%{_lib}/lib*.so
+/%{_lib}/lib*.la
 %{_includedir}/*
 %{_aclocaldir}/*.m4
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+/%{_lib}/lib*.a
 %endif
