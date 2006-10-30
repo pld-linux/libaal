@@ -6,7 +6,7 @@ Summary:	Library for Reiser4 filesystem
 Summary(pl):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
 Version:	1.0.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.namesys.com/pub/reiser4progs/%{name}-%{version}.tar.gz
@@ -59,8 +59,6 @@ Statyczna wersja biblioteki libaal.
 %{__autoconf}
 %{__automake}
 %configure \
-	--libdir=/%{_lib}\
-	--libexecdir=/%{_lib}\
 	%{!?debug:--disable-debug} \
 	%{!?with_static_libs:--disable-static}i
 %{__make}
@@ -70,6 +68,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT/%{_lib}
+mv -f $RPM_BUILD_ROOT%{_libdir}/libaal-*.so.* $RPM_BUILD_ROOT/%{_lib}
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libaal-1.0.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libaal-minimal.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal-minimal.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,17 +84,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 # COPYING contains information other than GPL text
 %doc AUTHORS BUGS COPYING CREDITS ChangeLog README THANKS TODO
-%attr(755,root,root) /%{_lib}/lib*-*.so.*.*.*
+%attr(755,root,root) /%{_lib}/libaal-1.0.so.*.*.*
+%attr(755,root,root) /%{_lib}/libaal-minimal.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) /%{_lib}/lib*.so
-/%{_lib}/lib*.la
-%{_includedir}/*
-%{_aclocaldir}/*.m4
+%attr(755,root,root) %{_libdir}/libaal.so
+%attr(755,root,root) %{_libdir}/libaal-minimal.so
+%{_libdir}/libaal.la
+%{_libdir}/libaal-minimal.la
+%{_includedir}/aal
+%{_aclocaldir}/libaal.m4
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-/%{_lib}/lib*.a
+%{_libdir}/libaal.a
+%{_libdir}/libaal-minimal.a
 %endif
