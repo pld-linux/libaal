@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Library for Reiser4 filesystem
-Summary(pl):	Bibloteka dla systemu plików Reiser4
+Summary(pl.UTF-8):   Bibloteka dla systemu plikÃ³w Reiser4
 Name:		libaal
 Version:	1.0.5
 Release:	2
@@ -21,31 +21,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 libaal library - needed for Reiser4 filesystem utilities.
 
-%description -l pl
-Biblioteka libaal - potrzebna do narzêdzi dla systemu plików Reiser4.
+%description -l pl.UTF-8
+Biblioteka libaal - potrzebna do narzÄ™dzi dla systemu plikÃ³w Reiser4.
 
 %package devel
 Summary:	Header files for libaal library
-Summary(pl):	Pliki nag³owkowe biblioteki libaal
+Summary(pl.UTF-8):   Pliki nagÅ‚owkowe biblioteki libaal
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for libaal library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki libaal.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki libaal.
 
 %package static
 Summary:	Static version of libaal
-Summary(pl):	Wersja statyczna libaal
+Summary(pl.UTF-8):   Wersja statyczna libaal
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libaal library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki libaal.
 
 %prep
