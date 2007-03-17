@@ -6,7 +6,7 @@ Summary:	Library for Reiser4 filesystem
 Summary(pl.UTF-8):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
 Version:	1.0.5
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.namesys.com/pub/reiser4progs/%{name}-%{version}.tar.gz
