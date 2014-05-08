@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
-#
+
 Summary:	Library for Reiser4 filesystem
 Summary(pl.UTF-8):	Bibloteka dla systemu plików Reiser4
 Name:		libaal
 Version:	1.0.5
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Libraries
 Source0:	ftp://ftp.namesys.com/pub/reiser4progs/%{name}-%{version}.tar.gz
@@ -60,19 +60,21 @@ Statyczna wersja biblioteki libaal.
 %{__automake}
 %configure \
 	%{!?debug:--disable-debug} \
-	%{!?with_static_libs:--disable-static}i
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
+# don't run ldconfig on install
+> run-ldconfig
 %{__make} install \
+	INSTALL="install -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/%{_lib}
 mv -f $RPM_BUILD_ROOT%{_libdir}/libaal-*.so.* $RPM_BUILD_ROOT/%{_lib}
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libaal-1.0.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal.so
-ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libaal-minimal.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal-minimal.so
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libaal-1.0.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal.so
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libaal-minimal.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal-minimal.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,7 +87,9 @@ rm -rf $RPM_BUILD_ROOT
 # COPYING contains information other than GPL text
 %doc AUTHORS BUGS COPYING CREDITS ChangeLog README THANKS TODO
 %attr(755,root,root) /%{_lib}/libaal-1.0.so.*.*.*
+%attr(755,root,root) %ghost /%{_lib}/libaal-1.0.so.5
 %attr(755,root,root) /%{_lib}/libaal-minimal.so.*.*.*
+%attr(755,root,root) %ghost /%{_lib}/libaal-minimal.so.0
 
 %files devel
 %defattr(644,root,root,755)
