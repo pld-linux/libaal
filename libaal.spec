@@ -2,27 +2,28 @@
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 
-Summary:	Library for Reiser4 filesystem
-Summary(pl.UTF-8):	Bibloteka dla systemu plików Reiser4
+Summary:	Abstraction library for Reiser4 filesystem
+Summary(pl.UTF-8):	Bibloteka abstrakcji dla systemu plików Reiser4
 Name:		libaal
 Version:	1.0.6
 Release:	1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/reiser4/reiser4-utils/reiser4progs/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/reiser4/%{name}-%{version}.tar.gz
 # Source0-md5:	6fd5c2471e1fd3972fb23ac5dc1b77e3
 Patch0:		%{name}-opt.patch
-URL:		http://www.namesys.com/
+URL:		http://sourceforge.net/projects/reiser4/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libaal library - needed for Reiser4 filesystem utilities.
+libaal - abstraction library needed for Reiser4 filesystem utilities.
 
 %description -l pl.UTF-8
-Biblioteka libaal - potrzebna do narzędzi dla systemu plików Reiser4.
+libaal to biblioteka abstrakcji potrzebna do narzędzi dla systemu
+plików Reiser4.
 
 %package devel
 Summary:	Header files for libaal library
@@ -72,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/%{_lib}
-mv -f $RPM_BUILD_ROOT%{_libdir}/libaal-*.so.* $RPM_BUILD_ROOT/%{_lib}
+%{__mv} $RPM_BUILD_ROOT%{_libdir}/libaal-*.so.* $RPM_BUILD_ROOT/%{_lib}
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libaal-1.0.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal.so
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libaal-minimal.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libaal-minimal.so
 
