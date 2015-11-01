@@ -6,7 +6,7 @@ Summary:	Abstraction library for Reiser4 filesystem
 Summary(pl.UTF-8):	Bibloteka abstrakcji dla systemu plików Reiser4
 Name:		libaal
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/reiser4/%{name}-%{version}.tar.gz
