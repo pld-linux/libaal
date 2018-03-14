@@ -1,5 +1,5 @@
---- libaal-1.0.2/configure.in.orig	2004-10-21 20:00:15.000000000 +0200
-+++ libaal-1.0.2/configure.in	2004-10-24 21:50:57.560925672 +0200
+--- libaal-1.0.2/configure.ac.orig	2004-10-21 20:00:15.000000000 +0200
++++ libaal-1.0.2/configure.ac	2004-10-24 21:50:57.560925672 +0200
 @@ -126,7 +126,6 @@
    ALIGN_FLAGS="-malign-jumps=1 -malign-loops=1 -malign-functions=1"
  fi

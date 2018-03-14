@@ -5,12 +5,12 @@
 Summary:	Abstraction library for Reiser4 filesystem
 Summary(pl.UTF-8):	Bibloteka abstrakcji dla systemu plików Reiser4
 Name:		libaal
-Version:	1.0.6
-Release:	2
+Version:	1.0.7
+Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/reiser4/%{name}-%{version}.tar.gz
-# Source0-md5:	6fd5c2471e1fd3972fb23ac5dc1b77e3
+# Source0-md5:	144b5ef9f13cb43cb053cb09aef63390
 Patch0:		%{name}-opt.patch
 URL:		http://sourceforge.net/projects/reiser4/
 BuildRequires:	autoconf >= 2.50
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 # COPYING contains information other than GPL text
 %doc AUTHORS BUGS COPYING CREDITS ChangeLog README THANKS TODO
 %attr(755,root,root) /%{_lib}/libaal-1.0.so.*.*.*
-%attr(755,root,root) %ghost /%{_lib}/libaal-1.0.so.6
+%attr(755,root,root) %ghost /%{_lib}/libaal-1.0.so.7
 %attr(755,root,root) /%{_lib}/libaal-minimal.so.*.*.*
 %attr(755,root,root) %ghost /%{_lib}/libaal-minimal.so.0
 
